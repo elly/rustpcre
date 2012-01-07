@@ -108,7 +108,7 @@ fn mk_pcre(re: str) -> pcre unsafe {
                               ptr::null())
     });
     if r == ptr::null() {
-        fail #fmt["pcre_compile() failed: %s", str::str_from_cstr(errv)];
+        fail #fmt["pcre_compile() failed: %s", str::from_cstr(errv)];
     }
     ret pcre({ _re: r, _res: _pcre_res(r) });
 }
